@@ -1,12 +1,16 @@
-import React from "react";
-import { createBrowserRouter } from "react-router";
+import React, { useContext } from "react";
+import { createBrowserRouter, Navigate } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import MainLayout from "../layout/MainLayout.jsx";
 import HomePage from "../pages/HomePage.jsx";
 import LoginPage from "../pages/LoginPage.jsx";
 import RegisterPage from "../pages/RegisterPage.jsx";
+import AuthContext from "../contexts/AuthContext.jsx";
 
 const MainRoutes = () => {
+  // Auth Context
+  const { user } = useContext(AuthContext);
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -14,15 +18,15 @@ const MainRoutes = () => {
       children: [
         {
           path: "/",
-          element: <HomePage />,
+          element: user ? <HomePage /> : <Navigate to="/register" />,
         },
         {
           path: "/login",
-          element: <LoginPage />,
+          element: !user ? <LoginPage /> : <Navigate to="/" />,
         },
         {
           path: "/register",
-          element: <RegisterPage />,
+          element: !user ? <RegisterPage /> : <Navigate to="/" />,
         },
       ],
     },

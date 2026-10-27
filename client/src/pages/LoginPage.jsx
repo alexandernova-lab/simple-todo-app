@@ -13,7 +13,7 @@ const LoginPage = () => {
 
   // Navigate
   const navigate = useNavigate();
-  
+
   const {
     register,
     handleSubmit,
@@ -25,7 +25,7 @@ const LoginPage = () => {
   // Form Submit
   const submit = async (data) => {
     try {
-      const res = await api.post("/login", data);
+      const res = await api.post("/users/login", data);
       if (res.status === 200) {
         dispatch({ type: "LOGIN", payload: res.data });
         navigate("/");

@@ -19,7 +19,7 @@ const RegisterPage = () => {
   // Handle Register Form
   const submit = async (data) => {
     try {
-      const res = await api.post("/register", data);
+      const res = await api.post("/users/register", data);
       if (res.status === 201) {
         navigate("/login");
         toast.success("Register success");
