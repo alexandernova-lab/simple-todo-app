@@ -1,6 +1,7 @@
 import express, { json } from "express";
 import dotenv from "dotenv";
 import { dbConnect } from "./db/index.js";
+import todoRoutes from "./routes/todoRoutes.js";
 
 dotenv.config({
   path: ".env",
@@ -8,6 +9,9 @@ dotenv.config({
 
 const app = express();
 app.use(json());
+
+// Routes
+app.use("/api/todos", todoRoutes);
 
 const PORT = process.env.PORT;
 
