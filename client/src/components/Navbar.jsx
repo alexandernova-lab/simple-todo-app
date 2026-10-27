@@ -68,7 +68,14 @@ const Navbar = () => {
               <li className="ml-2">
                 <div className="avatar avatar-placeholder cursor-pointer p-0">
                   <div className="bg-secondary text-secondary-content w-9 rounded-full ring ring-secondary/20 ring-offset-base-100 ring-offset-2">
-                    <span className="text-xs font-semibold">JD</span>
+                    <span className="text-xs font-semibold">
+                      {user.user.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")
+                        .toUpperCase()
+                        .slice(0, 2)}
+                    </span>
                   </div>
                 </div>
               </li>

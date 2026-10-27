@@ -1,4 +1,5 @@
-import { createContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
+import { api } from "../libs/axios.js";
 
 const AuthContext = createContext();
 
@@ -21,6 +22,7 @@ export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, {
     user: JSON.parse(localStorage.getItem("user")) || null,
   });
+
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
       {children}

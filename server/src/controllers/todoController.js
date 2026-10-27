@@ -4,7 +4,7 @@ export const createTodo = async (req, res) => {
   try {
     const { title } = req.body;
 
-    const todo = await Todo.create({ title });
+    const todo = await Todo.create({ title, userID: req.user._id });
     if (!todo) {
       throw new Error("Todo Creation Failed");
     }
@@ -16,7 +16,9 @@ export const createTodo = async (req, res) => {
 
 export const getTodos = async (req, res) => {
   try {
-    const todos = await Todo.find();
+    const todos = await Todo.find({ userID: req.user._id }).sort({
+      createdAt: -1,
+    });
     if (!todos) {
       throw new Error("No Todos Found");
     }

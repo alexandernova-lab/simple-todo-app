@@ -5,6 +5,7 @@ import todoRoutes from "./routes/todoRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { protect } from "./middlewares/authMiddleware.js";
 
 dotenv.config({
   path: ".env",
@@ -22,7 +23,7 @@ app.use(
 );
 
 // Routes
-app.use("/api/todos", todoRoutes);
+app.use("/api/todos", protect, todoRoutes);
 app.use("/api/users", userRoutes);
 
 const PORT = process.env.PORT;
