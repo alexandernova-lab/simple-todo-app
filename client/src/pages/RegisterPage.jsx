@@ -39,18 +39,19 @@ const RegisterPage = () => {
         <input
           {...register("name")}
           type="text"
-          className="input input-bordered input-md w-full bg-base-100"
+          className="input input-bordered input-md w-full bg-base-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           placeholder="name"
         />
-        {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+        {errors.name && <p className=" text-error">{errors.name.message}</p>}
 
         <label className="fieldset-label text-base-content mt-2">Email</label>
         <input
           {...register("email")}
           type="email"
-          className="input input-bordered input-md w-full bg-base-100"
+          className="input input-bordered input-md w-full bg-base-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           placeholder="email@example.com"
         />
+        {errors.email && <p className=" text-error">{errors.email.message}</p>}
 
         <label className="fieldset-label text-base-content mt-3">
           Password
@@ -58,9 +59,12 @@ const RegisterPage = () => {
         <input
           {...register("password")}
           type="password"
-          className="input input-bordered input-md w-full bg-base-100"
+          className="input input-bordered input-md w-full bg-base-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           placeholder="••••••••"
         />
+        {errors.password && (
+          <p className=" text-error">{errors.password.message}</p>
+        )}
 
         <button type="submit" className="btn btn-primary mt-6 w-full shadow-sm">
           Register

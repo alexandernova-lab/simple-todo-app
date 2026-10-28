@@ -46,7 +46,7 @@ const LoginPage = () => {
         <input
           {...register("email")}
           type="email"
-          className="input input-bordered input-md w-full bg-base-100"
+          className="input input-bordered input-md w-full bg-base-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           placeholder="email@example.com"
         />
         {errors.email && <p className="text-red-500">{errors.email.message}</p>}
@@ -57,7 +57,7 @@ const LoginPage = () => {
         <input
           {...register("password")}
           type="password"
-          className="input input-bordered input-md w-full bg-base-100"
+          className="input input-bordered input-md w-full bg-base-100 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
           placeholder="••••••••"
         />
         {errors.password && (

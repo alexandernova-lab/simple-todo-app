@@ -30,7 +30,7 @@ const CreateTodo = ({ addedTodo }) => {
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           placeholder="What needs to be done?"
-          className="input input-bordered w-full bg-base-100 text-base-content"
+          className="input input-bordered w-full bg-base-100 text-base-content focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all"
         />
         <button
           type="submit"

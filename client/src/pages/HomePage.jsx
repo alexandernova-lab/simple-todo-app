@@ -37,23 +37,19 @@ const HomePage = () => {
       {/* Header Section */}
       <div className="mb-6">
         <h1 className="text-3xl font-extrabold text-base-content">My tasks</h1>
-        <p className="text-sm text-base-content/60 mt-1 font-medium">
-          2 of 3 remaining
-        </p>
       </div>
 
       {/* Add Task Card */}
       <CreateTodo addedTodo={addedTodo} />
 
       {/* Task List Container Card */}
-      <div className="bg-base-100 border border-base-300 rounded-box shadow-md overflow-hidden divide-y divide-base-200">
-        {/* Task Item 1 (Completed) */}
-        <Todos
-          todos={todos}
-          deletedTodo={deletedTodo}
-          updatedTodo={updatedTodo}
-        />
-      </div>
+
+      {/* Task Item 1 (Completed) */}
+      <Todos
+        todos={todos}
+        deletedTodo={deletedTodo}
+        updatedTodo={updatedTodo}
+      />
     </div>
   );
 };
