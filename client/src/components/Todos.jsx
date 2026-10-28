@@ -71,31 +71,36 @@ const Todos = ({ todos, deletedTodo, updatedTodo }) => {
           </div>
         </div>
       )}
+
       <div className="bg-base-100 border border-base-300 rounded-box shadow-md overflow-hidden divide-y divide-base-200">
         {todos.map((todo) => (
           <div
             key={todo._id}
-            className=" space-y-2 flex items-center justify-between  p-4 hover:bg-base-200/40 transition-colors"
+            className="flex items-center justify-between gap-3 p-4 hover:bg-base-200/40 transition-colors"
           >
-            <label className="flex items-center gap-3 cursor-pointer flex-1">
-              <span className="text-base select-none  text-base-content/40">
+            <label className="flex items-center gap-3 flex-1 min-w-0">
+              <span className="text-base select-none text-base-content/40">
                 {todo.title}
               </span>
             </label>
-            <button
-              onClick={() => handleOpenModal(todo)}
-              className="btn btn-ghost btn-sm btn-square text-base-content/50 hover:text-primary hover:bg-primary/10 transition-colors"
-              title="Edit task"
-            >
-              <Pencil className="w-4 h-4" />
-            </button>
-            <button
-              onClick={() => deleteTodo(todo._id)}
-              className="btn btn-ghost btn-sm btn-square text-base-content/50 hover:text-error hover:bg-error/10 transition-colors"
-              title="Delete task"
-            >
-              <Trash2 className="w-4 h-4" />
-            </button>
+
+            <div className="flex items-center gap-1 shrink-0">
+              <button
+                onClick={() => handleOpenModal(todo)}
+                className="btn btn-ghost btn-sm btn-square text-base-content/50 hover:text-primary hover:bg-primary/10"
+                title="Edit task"
+              >
+                <Pencil className="w-4 h-4" />
+              </button>
+
+              <button
+                onClick={() => deleteTodo(todo._id)}
+                className="btn btn-ghost btn-sm btn-square text-base-content/50 hover:text-error hover:bg-error/10"
+                title="Delete task"
+              >
+                <Trash2 className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         ))}
       </div>
